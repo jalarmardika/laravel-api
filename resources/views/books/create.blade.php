@@ -10,19 +10,39 @@
 						@csrf
 						<div class="form-group">
 							<label>Title</label>
-							<input type="text" name="title" required class="form-control" autofocus>
+							<input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" autofocus>
+							@error('title')
+							<div class="invalid-feedback">
+								{{ $message }}
+							</div>
+							@enderror
 						</div>
 						<div class="form-group">
 							<label>Issued</label>
-							<input type="date" name="issued" required class="form-control">
+							<input type="date" name="issued" class="form-control @error('issued') is-invalid @enderror" value="{{ old('issued') }}">
+							@error('issued')
+							<div class="invalid-feedback">
+								{{ $message }}
+							</div>
+							@enderror
 						</div>
 						<div class="form-group">
 							<label>Author</label>
-							<input type="text" name="author" required class="form-control">
+							<input type="text" name="author" class="form-control @error('author') is-invalid @enderror" value="{{ old('author') }}">
+							@error('author')
+							<div class="invalid-feedback">
+								{{ $message }}
+							</div>
+							@enderror
 						</div>
 						<div class="form-group">
 							<label>Publisher</label>
-							<input type="text" name="publisher" required class="form-control">
+							<input type="text" name="publisher" class="form-control @error('publisher') is-invalid @enderror" value="{{ old('publisher') }}">
+							@error('publisher')
+							<div class="invalid-feedback">
+								{{ $message }}
+							</div>
+							@enderror
 						</div>
 						<div>
 							<button type="submit" name="submit" class="btn btn-outline-primary btn-sm float-right">Save Book</button>

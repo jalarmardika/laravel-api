@@ -12,12 +12,12 @@ class BookController extends Controller
 {
     public function index()
     {
-    	$books = Book::orderBy("id", "desc")->get();
+    	$books = Book::orderBy("id", "desc")->simplePaginate(10);
 
     	return response()->json([
     		'success' => true,
     		'message' => 'Successful in getting all the books',
-    		'data' => BookResource::collection($books)
+            'data' => $books,
     	]);
     }
 
